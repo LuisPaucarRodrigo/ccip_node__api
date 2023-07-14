@@ -8,6 +8,7 @@ router.get('/', itemController.obtenerElementos);
 // Ruta POST para crear un nuevo elemento
 router.post('/users', itemController.loginUser);
 router.post('/combustible', itemController.InsertCombustible);
+router.post('/traslado', itemController.InsertTraslado);
 
 // Exportar el enrutador
 module.exports = router;

@@ -15,8 +15,14 @@ const InsertCombustible = (req, res) => {
   itemService.InsertCombustible(req, res);
 };
 
+const InsertTraslado = (req, res) => {
+  // Lógica para crear un nuevo elemento en el servicio
+  itemService.InsertTraslado(req, res);
+};
+
 module.exports = {
   obtenerElementos,
   loginUser,
   InsertCombustible,
+  InsertTraslado
 };

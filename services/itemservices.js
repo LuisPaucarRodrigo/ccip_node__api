@@ -39,9 +39,27 @@ const InsertCombustible = (req, res) => {
   });
 };
 
+const InsertTraslado = (req, res) => {
+
+  // Obtener los datos enviados en la solicitud
+  const { site_atendido, comentarios, nro_inc_crq, zona, fecha_traslado, usuario } = req.body;
+
+  // Crear una nueva entrada en la base de datos
+  const query = 'INSERT INTO traslado (site_atendido, comentarios, nro_inc_crq, zona, fecha_traslado, usuario) VALUES (?, ?, ?, ?, ?, ?)';
+  connection.query(query, [site_atendido, comentarios, nro_inc_crq, zona, fecha_traslado, usuario], (error, results) => {
+    if (error) {
+      console.error('Error al insertar el registro de traslado:', error);
+      res.status(500).json({ error: 'Error al insertar el registro de traslado' });
+    } else {
+      res.json({ message: 'Registro de traslado insertado exitosamente' });
+    }
+  });
+};
+
 
 module.exports = {
   obtenerElementos,
   loginUser,
-  InsertCombustible
+  InsertCombustible,
+  InsertTraslado
 };
